@@ -1,0 +1,31 @@
+
+.card {
+    width: 250px;
+    height: 130px;
+}
+
+.header {
+    margin: 0 0 0 0 !important;
+}
+
+.cardTitle, .cardPriority {
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    overflow-wrap: normal !important;
+    width: inherit;
+    display: block;
+    white-space: nowrap;
+}
+
+.cardContent > * {
+    font-size: 12px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    overflow-wrap: normal !important;
+    width: inherit;
+    display: block;
+    white-space: nowrap;
+    /* padding-bottom: 10px; */
+}

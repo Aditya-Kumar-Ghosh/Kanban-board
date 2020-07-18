@@ -1,0 +1,44 @@
+<app-nav></app-nav>
+
+<div class="spacer-row"></div>
+
+<div class="container">
+    <mat-toolbar class="countToolbar">
+        <h2>Current Sprint Countdown: (</h2>
+        <countdown #cd1 [config]="{leftTime: 3000000}"></countdown>
+        <h2>)</h2>
+        <div class="button-space"></div>
+        <button mat-raised-button (click)="cd1.pause()" >Pause</button>
+        <div class="button-space"></div>
+        <button mat-raised-button (click)="cd1.resume()" >Resume</button>
+        <div class="button-space"></div>
+        <button mat-raised-button (click)="cd1.stop()" >Stop</button>
+        <div class="button-space"></div>
+        <button mat-raised-button (click)="cd1.restart()" >Restart</button>
+    </mat-toolbar>
+</div>
+
+<div class="spacer-row"></div>
+
+<div class="container flex flex-row list-scroll" cdkDropListGroup>
+    <div class="example-container" *ngFor="let cardItem of cardList">        
+        <div
+            cdkDropList
+            [cdkDropListData]="cardItem.tasks"
+            class="list"
+            (cdkDropListDropped)="drop($event)">
+            <div class="container listTitle">
+                <h3>{{cardItem.title}}</h3>
+            </div>
+            <div class="listScroll">
+                <div class="box" *ngFor="let item of cardItem.tasks" cdkDrag>
+                    <app-card [cardInput]="item"></app-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <router-outlet></router-outlet>
+</div>
